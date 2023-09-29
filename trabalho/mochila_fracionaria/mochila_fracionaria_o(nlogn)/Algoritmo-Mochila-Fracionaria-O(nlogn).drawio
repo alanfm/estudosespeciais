@@ -1,0 +1,129 @@
+<mxfile host="app.diagrams.net" modified="2023-09-28T01:45:28.260Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="x-KByzF1vt1Jk8qJkPPt" version="21.8.2" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1500" dy="763" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-0" value="Início" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="364" y="10" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-1" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="nERGSjp8VS6Cz2sTOSRf-0" target="nERGSjp8VS6Cz2sTOSRf-3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="300" as="sourcePoint" />
+            <mxPoint x="414" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-2" value="Fim" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="360" y="1210" width="108" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="nERGSjp8VS6Cz2sTOSRf-3" target="nERGSjp8VS6Cz2sTOSRf-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-3" value="Ordenação dos itens pela relação (valor do item/peso do item) em ordem decrescente" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="336" y="110" width="156" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="nERGSjp8VS6Cz2sTOSRf-5" target="nERGSjp8VS6Cz2sTOSRf-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-5" value="Inicializa o valor total da mochila em 0" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="338" y="200" width="152" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="nERGSjp8VS6Cz2sTOSRf-7" target="nERGSjp8VS6Cz2sTOSRf-27" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-7" value="Inicializa o vetor de objetos da mochila como array vazio, []" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="342" y="290" width="144" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="nERGSjp8VS6Cz2sTOSRf-9" target="nERGSjp8VS6Cz2sTOSRf-11" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="nERGSjp8VS6Cz2sTOSRf-9" target="nERGSjp8VS6Cz2sTOSRf-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-9" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Capacidade da mochila &amp;gt;= peso do item?&lt;/span&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="249" y="570" width="330" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="nERGSjp8VS6Cz2sTOSRf-11" target="nERGSjp8VS6Cz2sTOSRf-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-11" value="O peso do item é somado ao valor total da mochila" style="whiteSpace=wrap;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="600" y="688" width="145" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-13" value="Sim" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="590" y="598" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="nERGSjp8VS6Cz2sTOSRf-14" target="nERGSjp8VS6Cz2sTOSRf-22" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-14" value="A fração do item a ser guardada na mochila é calculada com base na relação (capacidade da mochila/peso do item)" style="whiteSpace=wrap;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="346" y="718" width="136" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-16" value="Não" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="405" y="688" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="nERGSjp8VS6Cz2sTOSRf-17" target="nERGSjp8VS6Cz2sTOSRf-19" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-17" value="O vetor de objetos da mochila recebe a tupla (peso, 1)" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="602.5" y="780" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="nERGSjp8VS6Cz2sTOSRf-19" target="nERGSjp8VS6Cz2sTOSRf-27" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="1100" as="sourcePoint" />
+            <mxPoint x="1223.5" y="410" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="673" y="1040" />
+              <mxPoint x="780" y="1040" />
+              <mxPoint x="780" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-19" value="É subtraído da capacidade da mochila o peso do item" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="607.5" y="870" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="nERGSjp8VS6Cz2sTOSRf-22" target="nERGSjp8VS6Cz2sTOSRf-25" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-22" value="O produto (fração do item*valor do item) é somado ao valor total da mochila" style="whiteSpace=wrap;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="346" y="850" width="136" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="nERGSjp8VS6Cz2sTOSRf-25" target="nERGSjp8VS6Cz2sTOSRf-27" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="414" y="1020" />
+              <mxPoint x="820" y="1020" />
+              <mxPoint x="820" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-25" value="O vetor de objetos da mochila recebe a tupla (peso, fraçao)" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="347" y="940" width="134" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="nERGSjp8VS6Cz2sTOSRf-27" target="nERGSjp8VS6Cz2sTOSRf-9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="480" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="nERGSjp8VS6Cz2sTOSRf-27" target="nERGSjp8VS6Cz2sTOSRf-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="450" as="sourcePoint" />
+            <mxPoint x="111.5" y="1240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="41" y="450" />
+              <mxPoint x="41" y="1240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-27" value="indice &amp;lt; tamanho do vetor itens" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="318.5" y="390" width="191" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="nERGSjp8VS6Cz2sTOSRf-30" value="Sim" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="424" y="510" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="RQGvRpjC133S4vMoeBN3-1" value="Não" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="270" y="398" width="50" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
