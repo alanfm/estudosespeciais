@@ -1,0 +1,56 @@
+# Created by https://www.toptal.com/developers/gitignore/api/compressed,visualstudiocode,text
+# Edit at https://www.toptal.com/developers/gitignore?templates=compressed,visualstudiocode,text
+
+### Compressed ###
+*.7z
+*.deb
+*.gz
+*.pkg
+*.rar
+*.rpm
+*.sit
+*.sitx
+*.tar
+*.zip
+*.zipx
+*.tgz
+
+### Text ###
+*.doc
+*.docx
+*.log
+*.msg
+*.pages
+*.rtf
+*.txt
+*.wpd
+*.wps
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+# Dat
+*.dat
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+
+# Python
+__pycache__/
+
+# End of https://www.toptal.com/developers/gitignore/api/compressed,visualstudiocode,text
