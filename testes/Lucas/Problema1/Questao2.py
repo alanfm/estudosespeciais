@@ -3,15 +3,6 @@ from ler_instancias import ler_instancia_arquivo
 import pph_algorithms as pph
 import time
 
-def remove_valor_zerob(a, b):
-    # Quando encontrar um valor 0 em b, remove o par (a,b) da lista
-    i = 0
-    while(i < len(b)):
-        if b[i] == 0:
-            a.pop(i)
-            b.pop(i)
-        i += 1
-    return a,b
 
 
 # Lendo instancias:
@@ -28,17 +19,17 @@ for instancia in instancias:
     # Dividir pares_ordenados em a e b
     a = [x[0] for x in pares_ordenados]
     b = [x[1] for x in pares_ordenados]
-    a,b = remove_valor_zerob(a,b)
+    pph.remove_valor_zerob(a,b)
 
-
-    # print("Questão 1 (O(n^2))")
-    # #print("Pares ordenados:", pares_ordenados)
-    # print("Conjunto S*:", pph.encontrar_S(a, b, a0, b0))
-    # print("Valor R*(S*):", pph.calc_R_conjunto(pph.encontrar_S(a, b, a0, b0), a0, b0))
-    tempo = time.time()
-    conj_S = pph.q1(a,b)
+    tmp = time.time()
+    #conj_S = pph.q2_bubble(a,b)
+    #conj_S = pph.q2_insertion(a,b)
+    #conj_S = pph.q2_selection(a,b)
+    #conj_S = pph.q2_heapsort(a,b)
+    #conj_S = pph.q2_mergesort(a,b)
+    conj_S = pph.q2_quicksort(a,b)
     print("Conjunto S*: ", conj_S)
-    print("Tempo de execução:", time.time() - tempo)
+    print("Tempo de execução:", time.time() - tmp)
     print("R:", pph.calc_R_conjunto(conj_S, a0, b0))
     
     
