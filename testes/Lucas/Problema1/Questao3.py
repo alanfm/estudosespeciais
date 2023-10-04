@@ -1,12 +1,14 @@
 from ler_instancias import ler_instancia_arquivo
-#from pph_alan import encontrar_S, calcular_R, calc_R_conjunto
 import pph_algorithms as pph
 import time
+
+# Aumentar o limite de recursão
+import sys
+sys.setrecursionlimit(100000)
 
 
 
 # Lendo instancias:
-# instancias = ["testes/Lucas/Problema1/PPH/pph_10_01.dat", "testes/Lucas/Problema1/PPH/pph_100_01.dat", "testes/Lucas/Problema1/PPH/pph_1000_01.dat", "testes/Lucas/Problema1/PPH/pph_10000_01.dat", "testes/Lucas/Problema1/PPH/pph_100000_01.dat"]
 instancias = ["Problema1/PPH/instancias/pph_10_01.dat", "Problema1/PPH/instancias/pph_100_01.dat", "Problema1/PPH/instancias/pph_1000_01.dat", "Problema1/PPH/instancias/pph_10000_01.dat", "Problema1/PPH/instancias/pph_100000_01.dat"]
 
 for instancia in instancias:
@@ -23,12 +25,7 @@ for instancia in instancias:
     pph.remove_valor_zerob(a,b)
 
     tmp = time.time()
-    #conj_S = pph.q2_bubble(a,b)
-    #conj_S = pph.q2_insertion(a,b)
-    #conj_S = pph.q2_selection(a,b)
-    #conj_S = pph.q2_heapsort(a,b)
-    #conj_S = pph.q2_mergesort(a,b)
-    conj_S = pph.q2_quicksort(a,b)
+    conj_S = pph.q3_quickselect(a,b)
     print("Conjunto S*: ", conj_S)
     print("Tempo de execução:", time.time() - tmp)
     print("R:", pph.calc_R_conjunto(conj_S, a0, b0))
