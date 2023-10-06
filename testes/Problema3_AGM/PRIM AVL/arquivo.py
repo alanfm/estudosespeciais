@@ -1,8 +1,10 @@
+# importações necessárias
+#
+#
+#
 
 
-# AVL OK (funciona, só não tá montando/gerando a árvore/gráfico corretamente)
-
-# import networkx as nx
+# AVL
 
 class AVLNode:
     def __init__(self, vertex, weight):
@@ -12,16 +14,22 @@ class AVLNode:
         self.right = None
         self.height = 1
 
+# Árvore AVL
 class AVLTree:
+
+    # O construtor inicializa uma árvore AVL vazia
     def __init__(self):
         self.root = None
 
+    # Retorna a altura do nó. Se o nó for None, a altura é considerada 0
     def get_height(self, node):
         return node.height if node else 0
 
+    # Retorna o fator de balanceamento para um nó
     def get_balance_factor(self, node):
         return self.get_height(node.left) - self.get_height(node.right)
 
+    # Executa uma rotação à direita em torno do nó y
     def rotate_right(self, y):
         x = y.left
         T2 = x.right
@@ -34,6 +42,7 @@ class AVLTree:
 
         return x
 
+    # Executa uma rotação à esquerda em torno do nó x
     def rotate_left(self, x):
         y = x.right
         T2 = y.left
@@ -46,6 +55,7 @@ class AVLTree:
 
         return y
 
+    # Insere um novo nó na árvore AVL e faz a rotação
     def insert(self, root, vertex, weight):
         if not root:
             return AVLNode(vertex, weight)
@@ -84,15 +94,18 @@ class AVLTree:
 
         return root
 
+    # Insere um novo vértice na árvore AVL chamando o método "insert"
     def insert_vertex(self, vertex, weight):
         self.root = self.insert(self.root, vertex, weight)
 
+    # Percorre a árvore e imprime os vértices e pesos dos nós
     def print_inorder(self, root):
         if root:
             self.print_inorder(root.left)
             print(f"({root.vertex}, {root.weight})", end=" ")
             self.print_inorder(root.right)
 
+    # Deleta um nó da árvore AVL, mantendo o balanceamento, e realiza as rotações necessárias
     def delete(self, root, vertex):
         if not root:
             return root
@@ -136,11 +149,13 @@ class AVLTree:
 
         return root
 
+    # Encontra o nó com o valor mínimo na árvore AVL
     def find_min(self, root):
         while root.left:
             root = root.left
         return root
 
+# construtor inicializa o grafo
 class Graph:
     def __init__(self, edges):
         self.vertices_set = set()
@@ -155,6 +170,7 @@ class Graph:
             src, dest, weight = edge
             self.add_edge(src, dest, weight)
 
+    # Adiciona uma aresta ao grafo
     def add_edge(self, src, dest, weight):
         if 0 <= src < self.V and 0 <= dest < self.V:
             self.adj[src].append((dest, weight))
@@ -162,6 +178,7 @@ class Graph:
         else:
             print(f"Erro: Vértices {src} ou {dest} fora do intervalo esperado.")
 
+    # Implementa o algoritmo de Prim para encontrar a AGM
     def prim_mst(self):
         key = {vertex: float('inf') for vertex in self.vertices_set}
         mst_set = {vertex: False for vertex in self.vertices_set}
@@ -189,11 +206,13 @@ class Graph:
 
         return parent
 
+    #  Imprime as arestas da AGM encontrada
     def print_mst_edges(self, parent):
         for vertex, par in parent.items():
             if par is not None:
                 print(f"Edge: ({par}, {vertex})")
 
+    # Gera uma representação gráfica da AGM (ainda com um erro, mas nada que interfira no entendimento ou execução)
     def plot_mst(self, parent):
         G = nx.Graph()
 
@@ -213,35 +232,35 @@ class Graph:
 
         plt.show()
 
-# Exemplo de uso:
-
-edges = [
-    [0, 1, 6],
-    [0, 2, 7],
-    [1, 2, 3],
-    [1, 4, 1],
-    [2, 3, 1],
-    [1, 3, 1],
-    [3, 4, 55],
-    [3, 5, 10],
-    [5, 4, 20],
-    [5, 6, 3],
-    [2, 6, 4],
-    [6, 7, 4],
-    [7, 8, 1],
-    [7, 9, 10],
-    [9, 8, 1],
-]
-
-# edges = [
-#     (0, 1, 2),
-#     (0, 2, 4),
-#     (1, 2, 3)
+# Exemplo ###################################################
+# 
+# Usando a função de leitura de arquivo
+# nome_arquivo = 'alue2105.stp'
+# matriz_dados = ler_dados_arquivo(nome_arquivo)
+# matriz_dados = np.round(matriz_dados).astype(int)
+# 
+# Se não for utilizar a função de leitura de arquivo, pode gerar manualmente a matriz [[vertice, vertice, peso], ...]
+#
+# matriz_dados = [
+#     [0, 1, 6],
+#     [0, 2, 7],
+#     [1, 2, 3],
+#     [1, 4, 1],
+#     [2, 3, 1],
+#     [1, 3, 1],
+#     [3, 4, 55],
+#     [3, 5, 10],
+#     [5, 4, 20],
+#     [5, 6, 3],
+#     [2, 6, 4],
+#     [6, 7, 4],
+#     [7, 8, 1],
+#     [7, 9, 10],
+#     [9, 8, 1],
 # ]
-
-g = Graph(edges)
-
-parent = g.prim_mst()
-print("Edges of MST:")
-g.print_mst_edges(parent)
-g.plot_mst(parent)
+# 
+# g = Graph(matriz_dados)
+# 
+# parent = g.prim_mst()
+# g.print_mst_edges(parent)
+# g.plot_mst(parent)
