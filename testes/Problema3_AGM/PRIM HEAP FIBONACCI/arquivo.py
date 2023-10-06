@@ -13,11 +13,13 @@ class FibonacciNode:
         self.next = self
         self.prev = self
 
+# construtor inicializa uma heap vazia
 class FibonacciHeap:
     def __init__(self):
         self.min_node = None
         self.vertex_to_node = {}
 
+    # Insere um novo nó na heap com o vértice e chave fornecidos
     def insert(self, vertex, key):
         if vertex not in self.vertex_to_node:
             new_node = FibonacciNode(vertex, key)
@@ -32,6 +34,7 @@ class FibonacciHeap:
         else:
             print(f"Aviso: Vértice {vertex} já está na heap de Fibonacci.")
 
+    #  Atualiza a chave de um nó na heap para um novo valor, mantendo as propriedades da heap
     def decrease_key(self, vertex, new_key):
         if vertex in self.vertex_to_node:
             node = self.vertex_to_node[vertex]
@@ -48,6 +51,7 @@ class FibonacciHeap:
         else:
             print(f"Erro: Vértice {vertex} não encontrado na heap de Fibonacci.")
 
+    # Conecta dois nós na heap durante as operações de união e inserção
     def _link(self, root1, root2):
         root1.next.prev = root2
         root2.next.prev = root1
@@ -57,6 +61,7 @@ class FibonacciHeap:
         root1.degree += 1
         root2.marked = False
 
+    # Remove um nó da lista de filhos de seu pai
     def _cut(self, child, parent):
         if child.next == child:
             parent.child = None
@@ -72,6 +77,7 @@ class FibonacciHeap:
         child.parent = None
         child.marked = False
 
+    # Executa operações de corte cascata para manter as propriedades da heap
     def _cascade_cut(self, node):
         parent = node.parent
         if parent is not None:
@@ -81,6 +87,7 @@ class FibonacciHeap:
                 self._cut(node, parent)
                 self._cascade_cut(parent)
 
+    # Adiciona um nó à lista de raízes na heap
     def _add_to_root_list(self, node):
         node.prev = self.min_node.prev
         node.next = self.min_node
@@ -88,6 +95,7 @@ class FibonacciHeap:
         self.min_node.prev = node
         node.parent = None
 
+    # Extrai o nó com a menor chave da heap
     def extract_min(self):
         min_node = self.min_node
         if min_node is not None:
@@ -117,6 +125,7 @@ class FibonacciHeap:
 
         return min_node
 
+    # Realiza a operação de consolidar para manter as propriedades da heap
     def _consolidate(self):
         max_degree = int(1.5 * (1 + len(self.vertex_to_node))**0.5)
         degree_table = [None] * max_degree
@@ -148,6 +157,7 @@ class FibonacciHeap:
                 elif degree_node.key < self.min_node.key:
                     self.min_node = degree_node
 
+# construtor inicializa o grafo
 class Graph:
     def __init__(self, edges):
         self.vertices_set = set()
@@ -162,6 +172,7 @@ class Graph:
             src, dest, weight = edge
             self.add_edge(src, dest, weight)
 
+    # Adiciona uma aresta ao grafo
     def add_edge(self, src, dest, weight):
         if 0 <= src < self.V and 0 <= dest < self.V:
             self.adj[src].append((dest, weight))
@@ -169,6 +180,7 @@ class Graph:
         else:
             print(f"Erro: Vértices {src} ou {dest} fora do intervalo esperado.")
 
+    # Implementa o algoritmo de Prim usando a Heap de Fibonacci para encontrar a Árvore Geradora Mínima no grafo
     def prim_mst_fibonacci_heap(self):
         key = {vertex: float('inf') for vertex in self.vertices_set}
         mst_set = {vertex: False for vertex in self.vertices_set}
@@ -194,11 +206,13 @@ class Graph:
 
         return parent
 
+    # Imprime as arestas da AGM encontrada
     def print_mst_edges(self, parent):
         for vertex, par in parent.items():
             if par is not None:
                 print(f"Edge: ({par}, {vertex})")
 
+    # Gera uma representação gráfica da AGM (ainda com um erro, mas nada que interfira no entendimento ou execução)
     def plot_mst(self, parent):
         G = nx.Graph()
 
@@ -218,30 +232,36 @@ class Graph:
 
         plt.show()
 
-# Exemplo de uso:
-
-edges = [
-    [0, 1, 6],
-    [0, 2, 7],
-    [1, 2, 3],
-    [1, 4, 1],
-    [2, 3, 1],
-    [1, 3, 1],
-    [3, 4, 55],
-    [3, 5, 10],
-    [5, 4, 20],
-    [5, 6, 3],
-    [2, 6, 4],
-    [6, 7, 4],
-    [7, 8, 1],
-    [7, 9, 10],
-    [9, 8, 1],
-]
-
-g = Graph(edges)
-
+# Exemplo ###################################################
+# 
+# Usando a função de leitura de arquivo
+# nome_arquivo = 'alue2105.stp'
+# matriz_dados = ler_dados_arquivo(nome_arquivo)
+# matriz_dados = np.round(matriz_dados).astype(int)
+# 
+# Se não for utilizar a função de leitura de arquivo, pode gerar manualmente a matriz [[vertice, vertice, peso], ...]
+# matriz_dados = [
+#     [0, 1, 6],
+#     [0, 2, 7],
+#     [1, 2, 3],
+#     [1, 4, 1],
+#     [2, 3, 1],
+#     [1, 3, 1],
+#     [3, 4, 55],
+#     [3, 5, 10],
+#     [5, 4, 20],
+#     [5, 6, 3],
+#     [2, 6, 4],
+#     [6, 7, 4],
+#     [7, 8, 1],
+#     [7, 9, 10],
+#     [9, 8, 1],
+# ]
+# 
+# 
+# g = Graph(matriz_dados)
+# 
 # Utilizando a Heap de Fibonacci
-parent_fib = g.prim_mst_fibonacci_heap()
-print("Edges of MST (Fibonacci Heap):")
-g.print_mst_edges(parent_fib)
-g.plot_mst(parent_fib)
+# parent_fib = g.prim_mst_fibonacci_heap()
+# g.print_mst_edges(parent_fib)
+# g.plot_mst(parent_fib)
