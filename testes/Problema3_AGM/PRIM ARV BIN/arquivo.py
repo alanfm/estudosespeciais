@@ -1,6 +1,6 @@
 
 
-# Binária funcionando
+# Estrutura de Dados: Árvore Binária
 
 class BinaryTreeNode:
     def __init__(self, vertex, weight):
@@ -8,15 +8,19 @@ class BinaryTreeNode:
         self.weight = weight
         self.left = None
         self.right = None
-
+        
+# Nó da árvore
 class BinaryTree:
+    # inicializa uma árvore vazia
     def __init__(self):
         self.root = None
 
+    # inserir um nó
     def insert(self, root, vertex, weight):
         if not root:
             return BinaryTreeNode(vertex, weight)
 
+        # verifica se existe um nó, caso não exista, insere na esquerda ou direita
         if vertex < root.vertex:
             root.left = self.insert(root.left, vertex, weight)
         elif vertex > root.vertex:
@@ -27,15 +31,18 @@ class BinaryTree:
 
         return root
 
+    # Insere um novo vértice na árvore
     def insert_vertex(self, vertex, weight):
         self.root = self.insert(self.root, vertex, weight)
-
+        
+    # Percorre a árvore de na sequênciaÇ esquerda, raiz e depois na direita, então imprime os vértices e pesos dos nós.
     def print_inorder(self, root):
         if root:
             self.print_inorder(root.left)
             print(f"({root.vertex}, {root.weight})", end=" ")
             self.print_inorder(root.right)
 
+    # Exclui um nó da árvore
     def delete(self, root, vertex):
         if not root:
             return root
@@ -58,11 +65,15 @@ class BinaryTree:
 
         return root
 
+    # Encontra o nó com o valor mínimo na árvore
     def find_min(self, root):
         while root.left:
             root = root.left
         return root
 
+# Classe do Grafo
+
+# construtor inicializa o grafo
 class Graph:
     def __init__(self, edges):
         self.vertices_set = set()
@@ -77,6 +88,7 @@ class Graph:
             src, dest, weight = edge
             self.add_edge(src, dest, weight)
 
+    # Adiciona uma aresta ao grafo
     def add_edge(self, src, dest, weight):
         if 0 <= src < self.V and 0 <= dest < self.V:
             self.adj[src].append((dest, weight))
@@ -84,6 +96,7 @@ class Graph:
         else:
             print(f"Erro: Vértices {src} ou {dest} fora do intervalo esperado.")
 
+    # Implementa o algoritmo de Prim para encontrar a AGM
     def prim_mst(self):
         key = {vertex: float('inf') for vertex in self.vertices_set}
         mst_set = {vertex: False for vertex in self.vertices_set}
@@ -111,11 +124,13 @@ class Graph:
 
         return parent
 
+    #  Imprime as arestas da AGM encontrada
     def print_mst_edges(self, parent):
         for vertex, par in parent.items():
             if par is not None:
                 print(f"Edge: ({par}, {vertex})")
 
+    # Gera uma representação gráfica da AGM (ainda com um erro, mas nada que interfira no entendimento ou execução)
     def plot_mst(self, parent):
         G = nx.Graph()
 
@@ -135,27 +150,35 @@ class Graph:
 
         plt.show()
 
-edges = [
-    [0, 1, 6],
-    [0, 2, 7],
-    [1, 2, 3],
-    [1, 4, 1],
-    [2, 3, 1],
-    [1, 3, 1],
-    [3, 4, 55],
-    [3, 5, 10],
-    [5, 4, 20],
-    [5, 6, 3],
-    [2, 6, 4],
-    [6, 7, 4],
-    [7, 8, 1],
-    [7, 9, 10],
-    [9, 8, 1],
-]
+# Exemplo ###################################################
+# 
+# Usando a função de leitura de arquivo
+# nome_arquivo = 'alue2105.stp'
+# matriz_dados = ler_dados_arquivo(nome_arquivo)
+# matriz_dados = np.round(matriz_dados).astype(int)
+# 
+# Se não for utilizar a função de leitura de arquivo, pode gerar manualmente a matriz [[vertice, vertice, peso], ...]
+# matriz_dados = [
+#     [0, 1, 6],
+#     [0, 2, 7],
+#     [1, 2, 3],
+#     [1, 4, 1],
+#     [2, 3, 1],
+#     [1, 3, 1],
+#     [3, 4, 55],
+#     [3, 5, 10],
+#     [5, 4, 20],
+#     [5, 6, 3],
+#     [2, 6, 4],
+#     [6, 7, 4],
+#     [7, 8, 1],
+#     [7, 9, 10],
+#     [9, 8, 1],
+# ]
+# 
+# g = Graph(matriz_dados)
+# 
+# parent = g.prim_mst()
+# g.print_mst_edges(parent)
+# g.plot_mst(parent)
 
-g = Graph(edges)
-
-parent = g.prim_mst()
-print("Edges of MST:")
-g.print_mst_edges(parent)
-g.plot_mst(parent)
