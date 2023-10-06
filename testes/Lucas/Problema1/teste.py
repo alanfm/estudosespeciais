@@ -1,46 +1,53 @@
-import sorting_algos as sorting
-import random
+from ler_instancias import ler_instancia_arquivo
+#from pph_alan import encontrar_S, calcular_R, calc_R_conjunto
+import pph_algorithms as pph
+import time
+import os
+import numpy as np
 
-def calcular_pivot(lista_a, lista_b):
-    soma_a = sum(lista_a)
-    soma_b = sum(lista_b)
-    return (lista_a[0] + soma_a) / (lista_b[0] + soma_b)
-
-def particionar(lista, inicio, fim, pivot):
-    i = inicio
-    j = fim
-
-    while True:
-        while lista[i] < pivot and i < len(lista):
-            i = i + 1
-        while lista[j] > pivot and j >= 0:
-            j = j - 1
-
-        if i >= j:
-            return j
-
-        lista[i], lista[j] = lista[j], lista[i]
+def remove_valor_zerob(a, b):
+    # Quando encontrar um valor 0 em b, remove o par (a,b) da lista
+    i = 0
+    while(i < len(b)):
+        if b[i] == 0:
+            a.pop(i)
+            b.pop(i)
         i += 1
-        j -= 1
+    return a,b
 
-def quick_sort_com_pivot(lista_a, lista_b):
-    if len(lista_a) <= 1:
-        return lista_a
 
-    pivot = round(calcular_pivot(lista_a, lista_b))
-    indice_pivo = particionar(lista_a, 0, len(lista_a) - 1, pivot)
+# Lendo instancias:
+dir = "./instancias"
+instancias = [os.path.join(dir, instancia) for instancia in os.listdir(dir)]
 
-    lista_a_esquerda = lista_a[:indice_pivo+1]
-    lista_a_direita = lista_a[indice_pivo+1:]
+for instancia in instancias:
+    tempo_ler_instancias_inicio = time.time()
+    n, a0, b0, pares_ordenados = ler_instancia_arquivo(instancia)
+    tempo_ler_instancias_fim = time.time()
+    print("Tempo para ler instancias:", tempo_ler_instancias_fim - tempo_ler_instancias_inicio)
 
-    lista_b_esquerda = lista_b[:indice_pivo+1]
-    lista_b_direita = lista_b[indice_pivo+1:]
+    # # Append a0 e b0 em pares_ordenados no inicio da lista
+    # pares_ordenados.insert(0, (a0, b0))
+    # print("N:", n)
+    # print("a0:", a0)
+    # print("b0:", b0)
+    # # Dividir pares_ordenados em a e b
+    # a = [x[0] for x in pares_ordenados]
+    # b = [x[1] for x in pares_ordenados]
+    # a,b = remove_valor_zerob(a,b)
 
-    return quick_sort_com_pivot(lista_a_esquerda, lista_b_esquerda) + quick_sort_com_pivot(lista_a_direita, lista_b_direita)
 
-# Exemplo de uso
-lista_a = [4, 5, 2, 8]
-lista_b = [7, 3, 6, 9]
+    # # print("Questão 1 (O(n^2))")
+    # # #print("Pares ordenados:", pares_ordenados)
+    # # print("Conjunto S*:", pph.encontrar_S(a, b, a0, b0))
+    # # print("Valor R*(S*):", pph.calc_R_conjunto(pph.encontrar_S(a, b, a0, b0), a0, b0))
+    # tempo = time.time()
+    # conj_S = pph.q1(a,b)
+    # print("Conjunto S*: ", conj_S)
+    # print("Tempo de execução:", time.time() - tempo)
+    # print("R:", pph.calc_R_conjunto(conj_S, a0, b0))
+    
+    
+    print("--------"*10)
 
-resultado = quick_sort_com_pivot(lista_a, lista_b)
-print(resultado)
+

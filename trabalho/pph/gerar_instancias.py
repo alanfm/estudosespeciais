@@ -1,28 +1,27 @@
 import random
 import os
+import time
 
 def iterations(file, n, multiplier):
     count = 0
     iterations = 0
-    result = ' '
+    result = ''
 
     while iterations < n:
         iterations += 1
         if count < 9 and iterations < n:
-            result += str(random.randint(1, n * multiplier)) + ' '
+            result += str(random.randint(1, multiplier)) + ', '
             count += 1
             continue
         else:
-            result += str(random.randint(1, n * multiplier)) + ' \n'
+            result += str(random.randint(1, multiplier)) + '\n'
             file.write(result)
-            result = ' '
-            count = 0     
-
-    file.write(' ' + str(random.randint(1, n * multiplier)) + ' \n' )
+            result = ''
+            count = 0
 
 
 def generate_file(n):
-    dirInstances = "../instancias/"
+    dirInstances = "./instancias/"
 
     if not os.path.exists(dirInstances):
         os.makedirs(dirInstances)
@@ -31,15 +30,17 @@ def generate_file(n):
     file = open( dirInstances + file_name, "w")
     file.write(str(n) + "\n")
     
-    iterations(file, n, 10)
-    iterations(file, n, 20)
+    iterations(file, n, 500)
+    iterations(file, n, 1000)
 
     file.close()
 
 def main():
-    instances = [100, 1000, 10000, 100000, 1000000, 10000000, 100000000]
+    instances = [100, 1000, 10000, 100000, 1000000, 10000000]
     for i in instances:
+        start = time.time()
         generate_file(i)
+        print("Tempo para gerar instancias: ", time.time() - start)
     print("Arquivos gerados com sucesso!")
     
 if __name__ == "__main__":
