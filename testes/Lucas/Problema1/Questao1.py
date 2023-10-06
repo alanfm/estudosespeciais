@@ -2,6 +2,7 @@ from ler_instancias import ler_instancia_arquivo
 #from pph_alan import encontrar_S, calcular_R, calc_R_conjunto
 import pph_algorithms as pph
 import time
+import os
 
 def remove_valor_zerob(a, b):
     # Quando encontrar um valor 0 em b, remove o par (a,b) da lista
@@ -15,11 +16,15 @@ def remove_valor_zerob(a, b):
 
 
 # Lendo instancias:
-instancias = ["testes/Lucas/Problema1/PPH/pph_10_01.dat", "testes/Lucas/Problema1/PPH/pph_100_01.dat", "testes/Lucas/Problema1/PPH/pph_1000_01.dat", "testes/Lucas/Problema1/PPH/pph_10000_01.dat", "testes/Lucas/Problema1/PPH/pph_100000_01.dat"]
+dir = "./instancias"
+instancias = [os.path.join(dir, instancia) for instancia in os.listdir(dir)]
 
 for instancia in instancias:
-
+    tempo_ler_instancias_inicio = time.time()
     n, a0, b0, pares_ordenados = ler_instancia_arquivo(instancia)
+    tempo_ler_instancias_fim = time.time()
+    print("Tempo para ler instancias:", tempo_ler_instancias_fim - tempo_ler_instancias_inicio)
+
     # Append a0 e b0 em pares_ordenados no inicio da lista
     pares_ordenados.insert(0, (a0, b0))
     print("N:", n)

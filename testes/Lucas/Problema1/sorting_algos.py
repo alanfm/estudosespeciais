@@ -106,7 +106,6 @@ def heap_sort(vetor):
         heapify(vetor, i, 0)
 
 
-
 def partition(arr, low, high):
     pivot = arr[high]
     i = low - 1

@@ -1,6 +1,7 @@
 from ler_instancias import ler_instancia_arquivo
 import pph_algorithms as pph
 import time
+import os
 
 # Aumentar o limite de recursão
 import sys
@@ -9,7 +10,9 @@ sys.setrecursionlimit(100000)
 
 
 # Lendo instancias:
-instancias = ["Problema1/PPH/instancias/pph_10_01.dat", "Problema1/PPH/instancias/pph_100_01.dat", "Problema1/PPH/instancias/pph_1000_01.dat", "Problema1/PPH/instancias/pph_10000_01.dat", "Problema1/PPH/instancias/pph_100000_01.dat"]
+dir = "./testes/Lucas/Problema1/instancias"
+instancias = [os.path.join(dir, instancia) for instancia in os.listdir(dir)]
+
 
 for instancia in instancias:
 

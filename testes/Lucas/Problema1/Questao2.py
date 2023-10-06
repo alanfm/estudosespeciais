@@ -2,12 +2,14 @@ from ler_instancias import ler_instancia_arquivo
 #from pph_alan import encontrar_S, calcular_R, calc_R_conjunto
 import pph_algorithms as pph
 import time
+import os
 
 
 
 # Lendo instancias:
 # instancias = ["testes/Lucas/Problema1/PPH/pph_10_01.dat", "testes/Lucas/Problema1/PPH/pph_100_01.dat", "testes/Lucas/Problema1/PPH/pph_1000_01.dat", "testes/Lucas/Problema1/PPH/pph_10000_01.dat", "testes/Lucas/Problema1/PPH/pph_100000_01.dat"]
-instancias = ["Problema1/PPH/instancias/pph_10_01.dat", "Problema1/PPH/instancias/pph_100_01.dat", "Problema1/PPH/instancias/pph_1000_01.dat", "Problema1/PPH/instancias/pph_10000_01.dat", "Problema1/PPH/instancias/pph_100000_01.dat"]
+dir = "./instancias"
+instancias = [os.path.join(dir, instancia) for instancia in os.listdir(dir)]
 
 for instancia in instancias:
 
