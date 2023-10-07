@@ -23,21 +23,21 @@ def exec_algorithms(algorithm, matriz_dados):
             gBin.print_mst_edges(parentBin)
             print('Arvore Binaria')
             complexity = 'O(n)'
-            reason = len(matriz_dados)
+            reason = len(matriz_dados[0])
         elif algorithm == 'agm_b':
             gAvl = algoritmos.GraphAVL(matriz_dados)
             parentAvl = gAvl.prim_mst()
             print('avl')
             gAvl.print_mst_edges(parentAvl)            
             complexity = 'O(n)'
-            reason = len(matriz_dados)   
+            reason = len(matriz_dados[0])   
         elif algorithm == 'agm_c':
             gHeapFibonacci = algoritmos.GraphHeapFibonacci(matriz_dados)
             parent_fib = gHeapFibonacci.prim_mst_fibonacci_heap()
             print('heap fibonacci')
             gHeapFibonacci.print_mst_edges(parent_fib)
             complexity = 'O(n)'
-            reason = len(matriz_dados)      
+            reason = len(matriz_dados[0])      
         
         if (time.time() - start) > time_max:
             time_max = time.time() - start
