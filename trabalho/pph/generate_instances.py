@@ -36,7 +36,7 @@ def generate_file(n):
     file.close()
 
 def main():
-    instances = [100, 1000, 10000, 100000, 1000000, 10000000]
+    instances = [100, 200, 500, 1000, 1500, 2000]
     for i in instances:
         start = time.time()
         generate_file(i)
