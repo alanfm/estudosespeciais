@@ -85,6 +85,8 @@ class GraphBin:
 
         for edge in edges:
             src, dest, weight = edge
+            src = round(src)
+            dest = round(dest)
             self.add_edge(src, dest, weight)
 
     # Adiciona uma aresta ao grafo
