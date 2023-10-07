@@ -48,12 +48,12 @@ def mf_b(W, itens):
     for i in range(n):
         #Adiciona em r1 caso a proporção do item seja maior que o pivot, adiciona o peso em W1
         #e incrimenta a variável de valor
-        if itens[i].proporcao > itens[indice_pivot].ratio:
+        if itens[i].proporcao > itens[indice_pivot].proporcao:
             r1.append(itens[i])
             w1 += itens[i].peso
             v1 += itens[i].valor
         #Adiciona em r2 caso a proporção do item seja igual ao pivot e incrementa o peso em w2
-        elif itens[i].proporcao == itens[indice_pivot].ratio:
+        elif itens[i].proporcao == itens[indice_pivot].proporcao:
             r2.append(itens[i])
             w2 += itens[i].peso
         #Adiciona em r3 caso a proporção seja menor que o pivot e incrementa o peso em w3
