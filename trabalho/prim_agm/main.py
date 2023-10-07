@@ -2,18 +2,19 @@ import algoritmos
 import ler_arquivo
 from math import log
 import numpy as np
-
+ 
 def main():
     # inica o local do arquivo
     nome_arquivo = 'alue2105.stp'
     matriz_dados = ler_arquivo.ler_dados_arquivo(nome_arquivo)
-    matriz_dados = np.round(matriz_dados).astype(int)
+    # matriz_dados = np.round(matriz_dados).astype(int)
+    matriz_dados = [[int(x) for x in row] for row in matriz_dados]
 
     # exemplo arvore binaria
     gBin = algoritmos.GraphBin(matriz_dados)
     parentBin = gBin.prim_mst()
-    gBin.print_mst_edges(parentBin)
     print('arvore binaria')
+    gBin.print_mst_edges(parentBin)
     # plotar a arvore, mas ainda não tá funcionando
     # gBin.plot_mst(parentBin)
 
