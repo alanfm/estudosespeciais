@@ -1,8 +1,8 @@
 def bubble_sort(arr):
     n = len(arr)
 
-    for i in range(n - 1):
-        for j in range(n - 1):
+    for i in range(n):
+        for j in range(n - i - 1):
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
@@ -34,15 +34,36 @@ def merge(left, right):
 
     return vetor + left + right
 
-def merge_sort(vetor):
-    if len(vetor) < 2:
-        return vetor
+def merge_sort(lista):
+    if len(lista) > 1:
+        meio = len(lista)//2
+        metade_esquerda = lista[:meio]
+        metade_direita = lista[meio:]
 
-    meio = len(vetor) // 2
-    left = vetor[:meio]
-    right = vetor[meio:]
+        merge_sort(metade_esquerda)
+        merge_sort(metade_direita)
 
-    return merge(merge_sort(left), merge_sort(right))
+        i = j = k = 0
+
+        # Mesclando as listas ordenadas
+        while i < len(metade_esquerda) and j < len(metade_direita):
+            if metade_esquerda[i] < metade_direita[j]:
+                lista[k] = metade_esquerda[i]
+                i += 1
+            else:
+                lista[k] = metade_direita[j]
+                j += 1
+            k += 1
+
+        while i < len(metade_esquerda):
+            lista[k] = metade_esquerda[i]
+            i += 1
+            k += 1
+
+        while j < len(metade_direita):
+            lista[k] = metade_direita[j]
+            j += 1
+            k += 1
 
 
 def quick_sort(vetor):
@@ -63,18 +84,16 @@ def quick_sort(vetor):
 
     return quick_sort(left) + [pivo] + quick_sort(right)
 
-def selection_sort(vetor):
-    tamanho_vetor = len(vetor)
-
-    for i in range(tamanho_vetor - 1):
-        menor_valor_indice = i
-
-        for j in range(i, tamanho_vetor):
-            if vetor[j] < vetor[menor_valor_indice]:
-                menor_valor_indice = j
-
-        if vetor[i] > vetor[menor_valor_indice]:
-            vetor[i], vetor[menor_valor_indice] = vetor[menor_valor_indice], vetor[i]
+def selection_sort(lista):
+    n = len(lista)
+    for i in range(n):
+        # Encontra o índice do menor elemento não ordenado
+        indice_menor = i
+        for j in range(i+1, n):
+            if lista[j] < lista[indice_menor]:
+                indice_menor = j
+        # Troca o menor elemento com o primeiro não ordenado
+        lista[i], lista[indice_menor] = lista[indice_menor], lista[i]
 
 
 # Implementação do heap-sort
