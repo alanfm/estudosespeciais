@@ -45,8 +45,7 @@ def exec_algorithms(algorithm, capacity, items):
     return [algorithm, len(items), complexity, str(f'{cpu_time:.7f}'), reason/cpu_time, time_max, time_min, memory[1]]
 
 def main():
-    algorithms = ['mf_b']
-    # algorithms = ['mf_a', 'mf_b', 'mf_c']
+    algorithms = ['mf_a', 'mf_b', 'mf_c']
     dir = "./instancias"
     instances = [os.path.join(dir, instance) for instance in os.listdir(dir)]
     with open('results.csv', 'w') as file:
