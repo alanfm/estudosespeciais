@@ -6,7 +6,7 @@ class Item:
         self.valor = valor
         self.proporcao = valor / peso
 
-def mochila_linear(W, itens):
+def mf_c(W, itens):
     n = len(itens)  # Número de itens
 
     if n == 0:  # Se não houver itens
@@ -41,7 +41,7 @@ def mochila_linear(W, itens):
             w3 += itens[i].peso
 
     if w1 > W:  # Neste caso, os itens de r1 serão suficientes para maximizar o valor
-        return mochila_linear(W, r1)
+        return mf_c(W, r1)
     else:
         W -= w1 #decrementa o valor do peso a partir do que estava em w1
         valor_total = v1 #Valor total recebe todo o valor que está na primeira partição
@@ -61,7 +61,7 @@ def mochila_linear(W, itens):
         if W == 0:  # Se a mochila estiver cheia, terminamos
             return valor_total
         else:  # Se a mochila não estiver cheia, precisamos considerar os itens de r3
-            return valor_total + mochila_linear(W, r3)
+            return valor_total + mf_c(W, r3)
 
 if __name__ == "__main__":
     n = 5
@@ -75,5 +75,5 @@ if __name__ == "__main__":
     print('Proporção dos itens', itens[1].proporcao)
     print('Proporção dos itens', itens[2].proporcao)
 
-    valor_maximo = mochila_linear(capacidade, itens)
+    valor_maximo = mf_c(capacidade, itens)
     print("Valor máximo:", valor_maximo)

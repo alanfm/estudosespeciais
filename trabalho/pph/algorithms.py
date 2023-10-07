@@ -31,20 +31,21 @@ def remove_valor_zerob(a,b):
 
 def q1(a, b):
     # remove_valor_zerob(a,b)
-    R = a[0]/b[0]
+    R = a[0] / b[0]
     S = []
-    for k in range(1,len(a)):
-        if a[k]/b[k] > R:
-            S.append((a[k],b[k]))
-            R = calc_R_conjunto(S,a[0],b[0])
+    for k in range(1, len(a)):
+        if a[k] / b[k] > R:
+            S.append((a[k], b[k]))
+            R = calc_R_conjunto(S, a[0], b[0])
             i = 0
             while(i < len(S)):
                 if S[i][0]/S[i][1] < R:
                     S.pop(i)
-                    R = calc_R_conjunto(S,a[0],b[0])
+                    R = calc_R_conjunto(S, a[0], b[0])
                 i += 1
     return S
 
+# Q2 - a
 def q2_bubble(a,b):
     R = a[0] / b[0]
     S = []

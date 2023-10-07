@@ -4,7 +4,6 @@ import heapq
 # Leitura do arquivo
 def ler_dados_arquivo(nome_arquivo):
     dados = []
-    print(nome_arquivo)
     with open(nome_arquivo, 'r') as arquivo:
         # percorres todas as linhas do arquivo
         for linha in arquivo:
