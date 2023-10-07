@@ -185,3 +185,24 @@ def q3_quickselect(a,b):
             break
 
     return S
+
+
+def q4_quickS_pivo(a,b):
+    R = a[0] / b[0]
+    S = set()
+    pairs = [( a[i] / b[i], a[i], b[i]) for i in range(1, len(a))]
+    pivo = sum(a)/sum(b)
+
+    # Eu vou o quickselect para pegar o maior elemento de pairs e adicionar no conjunto S
+    # quando o elemento for adicionado, eu removo ele de pairs. Se o maior elemento for menor que R atual, eu paro;
+    # caso contrário, eu continuo até que pairs esteja vazio.
+    while pairs:
+        ind, maior = quickselect(pairs, 0, len(pairs) - 1, 0, pivot=pivo)
+        ratio, ak, bk = pairs.pop(ind)
+        if ratio > R:
+            S.add((ak, bk))
+            R = calc_R_conjunto(S, a[0], b[0])
+        else:
+            break
+
+    return S, maior
